@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "creation": "2015-11-27 16:34:36.806738",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "description",
+  "more_information",
+  "action",
+  "task",
+  "status",
+  "remarks",
+  "column_break_4",
+  "assigned_to",
+  "issue",
+  "issue_status",
+  "complete_by",
+  "todo"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "more_information",
+   "fieldtype": "Section Break",
+   "label": "More Information"
+  },
+  {
+   "fieldname": "action",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Action"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Task Status",
+   "options": "Open\nPending Review\nHold\nClosed\nCancelled"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "label": "Assigned To",
+   "options": "User"
+  },
+  {
+   "fieldname": "complete_by",
+   "fieldtype": "Date",
+   "label": "Complete By"
+  },
+  {
+   "fieldname": "todo",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "ToDo",
+   "options": "ToDo",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "task",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Task",
+   "options": "Task"
+  },
+  {
+   "fieldname": "issue",
+   "fieldtype": "Link",
+   "label": "Issue",
+   "options": "Issue"
+  },
+  {
+   "fieldname": "issue_status",
+   "fieldtype": "Select",
+   "label": "Issue Status",
+   "options": "Open\nReplied\nOn Hold\nResolved\nClosed"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-06 11:29:53.396491",
+ "modified_by": "Administrator",
+ "module": "Meeting",
+ "name": "Meeting Minute",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
