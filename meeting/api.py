@@ -52,6 +52,7 @@ def make_orientation_meeting(doc, method):
 		"date": add_days(nowdate(), 1),
 		"from_time": "09:00",
 		"to_time": "09:30",
+		"custom_department":"General - THIS",
 		"status": "Planned",
 		"attendees": [{
 			"attendee": doc.name

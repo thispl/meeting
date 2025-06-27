@@ -1,5 +1,7 @@
 {
  "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
  "autoname": "MOM-.####",
  "creation": "2015-11-27 16:27:10.255613",
  "doctype": "DocType",
@@ -7,31 +9,43 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
+  "naming_seies",
+  "completion_mail",
   "status",
   "show_in_website",
+  "meeting_with",
+  "lead",
+  "dynamic_link_lggr",
+  "suppiler",
+  "department",
+  "specify",
   "page_name",
   "parent_website_route",
   "column_break_3",
   "date",
   "from_time",
   "to_time",
+  "organized_by",
+  "project",
   "agenda_section",
   "agenda",
   "attendees_section",
   "attendees",
+  "external_attendees_section",
   "external_attendees",
   "invitation",
   "invitation_message",
   "send_emails",
   "minutes_section",
-  "minutes",
-  "mom_email"
+  "minutes"
  ],
  "fields": [
   {
    "fieldname": "title",
    "fieldtype": "Data",
-   "label": "Title"
+   "label": "Title",
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fieldname": "status",
@@ -135,6 +149,7 @@
    "label": "Minutes"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "minutes",
    "fieldtype": "Table",
    "label": "Minutes",
@@ -147,41 +162,92 @@
    "options": "External Attendees"
   },
   {
-   "fieldname": "mom_email",
-   "fieldtype": "Button",
-   "label": "MOM Email"
+   "fieldname": "naming_seies",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "MOM-"
+  },
+  {
+   "default": "0",
+   "fieldname": "completion_mail",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Completion Mail",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "meeting_with",
+   "fieldtype": "Select",
+   "label": "Meeting With",
+   "options": "\nLead\nCustomer\nSupplier\nInternal\nOthers"
+  },
+  {
+   "depends_on": "eval:doc.meeting_with=='Customer'",
+   "fieldname": "dynamic_link_lggr",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "external_attendees",
+   "fieldname": "external_attendees_section",
+   "fieldtype": "Section Break",
+   "label": "External Attendees"
+  },
+  {
+   "fieldname": "organized_by",
+   "fieldtype": "Link",
+   "label": "Organized By",
+   "options": "User"
+  },
+  {
+   "depends_on": "eval:doc.meeting_with=='Internal'",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "depends_on": "eval:doc.meeting_with=='Others'",
+   "fieldname": "specify",
+   "fieldtype": "Data",
+   "label": "Specify"
+  },
+  {
+   "depends_on": "eval:doc.meeting_with=='Lead'",
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "label": "Lead",
+   "options": "Lead"
+  },
+  {
+   "depends_on": "eval:doc.meeting_with=='Supplier'",
+   "fieldname": "suppiler",
+   "fieldtype": "Link",
+   "label": "Suppiler",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "Project"
   }
  ],
  "links": [],
- "modified": "2024-01-27 12:28:47.749272",
+ "modified": "2025-05-13 18:55:41.467422",
  "modified_by": "Administrator",
  "module": "Meeting",
  "name": "Meeting",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
- "permissions": [
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Meeting Manager",
-   "share": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Meeting Attendee",
-   "share": 1,
-   "write": 1
-  }
- ],
+ "permissions": [],
+ "show_preview_popup": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
